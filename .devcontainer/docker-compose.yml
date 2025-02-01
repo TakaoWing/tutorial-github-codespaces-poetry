@@ -9,7 +9,7 @@ services:
   cosmosdb:
     restart: always
     container_name: "azure-cosmosdb-emulator"
-    image: 'mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest'
+    image: 'mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:vnext-preview'
     environment:
         - AZURE_COSMOS_EMULATOR_PARTITION_COUNT=10
         - AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE=true
@@ -21,6 +21,7 @@ services:
           memory: 3G
     tty: true
     ports:
+      - '1234:1234'
       - '8081:8081' # Data Explorer
       - '8900:8900'
       - '8901:8901'
