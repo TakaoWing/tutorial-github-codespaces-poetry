@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   app:
     build:
@@ -12,7 +10,11 @@ services:
     container_name: "azure-cosmosdb-emulator"
     hostname: "azurecosmosemulator"
     image: 'mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest'
-    mem_limit: 4GB
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 3G
     tty: true
     ports:
     - '8081:8081' # Data Explorer
@@ -27,7 +29,15 @@ services:
     - '10255:10255'
     - '10256:10256'
     - '10350:10350'
-
+  azurite:
+        container_name: azurite
+        image: mcr.microsoft.com/azure-storage/azurite:latest
+        ports:
+            - "10000:10000"
+            - "10001:10001"
+            - "10002:10002"
+        volumes:
+            - ./data/azurite:/data
 networks:
   default:
     name: devcontainer_default
