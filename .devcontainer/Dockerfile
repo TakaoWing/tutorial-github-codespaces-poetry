@@ -6,6 +6,7 @@ WORKDIR /workspaces/tutorial-github-codespaces-poetry
 COPY ./pyproject.toml ./poetry.lock* ./
 RUN pip install poetry \
     && poetry config virtualenvs.create false
+RUN apt-get update && apt-get install -y lsof net-tools
 
 COPY . /workspaces/tutorial-github-codespaces-poetry
 
