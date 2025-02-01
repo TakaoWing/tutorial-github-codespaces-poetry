@@ -1,8 +1,9 @@
 {
     "name": "Python 3",
-    "service": "app",
     "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
     "workspaceFolder": "/workspaces/tutorial-github-codespaces-poetry",
+    "shutdownAction": "none",
     "customizations": {
         "vscode": {
             "settings": {
