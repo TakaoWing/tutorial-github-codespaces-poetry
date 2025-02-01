@@ -1,9 +1,7 @@
 {
     "name": "Python 3",
-    "build": {
-        "context": "..",
-        "dockerfile": "Dockerfile"
-    },
+    "service": "app",
+    "dockerComposeFile": "docker-compose.yml",
     "workspaceFolder": "/workspaces/tutorial-github-codespaces-poetry",
     "customizations": {
         "vscode": {
