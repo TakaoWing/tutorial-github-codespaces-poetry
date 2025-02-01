@@ -7,7 +7,6 @@ services:
       dockerfile: .devcontainer/Dockerfile
     volumes:
       - ${LOCAL_WORKSPACE_FOLDER:-.}:/workspaces/tutorial-github-codespaces-poetry
-    command: sleep infinity
 
 
     

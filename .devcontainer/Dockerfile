@@ -7,3 +7,4 @@ COPY ./pyproject.toml ./poetry.lock* ./
 RUN pip install poetry \
     && poetry config virtualenvs.create false
 RUN poetry install --no-root
+CMD ["sleep", "infinity"]
