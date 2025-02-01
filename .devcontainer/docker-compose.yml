@@ -5,36 +5,28 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
-
-  # cosmosdb:
-  #   environment:
-  #     AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE: "true"
-  #     AZURE_COSMOS_EMULATOR_PARTITION_COUNT: "1"
-  #   image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
-  #   networks:
-  #     default: null
-  #   ports:
-  #     - mode: ingress
-  #       target: 8081
-  #       published: "8081"
-  #       protocol: tcp
-  #     - mode: ingress
-  #       target: 10251
-  #       published: "10251"
-  #       protocol: tcp
-  #     - mode: ingress
-  #       target: 10252
-  #       published: "10252"
-  #       protocol: tcp
-  #     - mode: ingress
-  #       target: 10253
-  #       published: "10253"
-  #       protocol: tcp
-  #   volumes:
-  #     - type: volume
-  #       source: cosmosdbdata
-  #       target: /data
-  #       volume: {}
+    depends_on:
+      - cosmosdb
+  cosmosdb:
+    restart: always
+    container_name: "azure-cosmosdb-emulator"
+    hostname: "azurecosmosemulator"
+    image: 'mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest'
+    mem_limit: 4GB
+    tty: true
+    ports:
+    - '8081:8081' # Data Explorer
+    - '8900:8900'
+    - '8901:8901'
+    - '8902:8902'
+    - '10250:10250'
+    - '10251:10251'
+    - '10252:10252'
+    - '10253:10253'
+    - '10254:10254'
+    - '10255:10255'
+    - '10256:10256'
+    - '10350:10350'
 
 networks:
   default:
