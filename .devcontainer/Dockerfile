@@ -6,5 +6,8 @@ WORKDIR /workspaces/tutorial-github-codespaces-poetry
 COPY ./pyproject.toml ./poetry.lock* ./
 RUN pip install poetry \
     && poetry config virtualenvs.create false
+
+COPY . .
+
 RUN poetry install --no-root
 CMD ["sleep", "infinity"]
