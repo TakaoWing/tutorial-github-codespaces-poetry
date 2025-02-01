@@ -1,0 +1,27 @@
+{
+    "name": "Python 3",
+    "build": {
+        "context": ".",
+        "dockerfile": "Dockerfile"
+    },
+    "workspaceFolder": "/workspaces/tutorial-github-codespaces-poetry",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "workbench.colorTheme": "Visual Studio Dark",
+                "editor.formatOnSave": true
+            },
+            "extensions": [
+                "github.copilot", // GitHub Copilot
+                "njpwerner.autodocstring", // AutoDocstring
+                "streetsidesoftware.code-spell-checker", // Code Spell Checker
+                "usernamehw.errorlens", // Error Lens
+                "ms-python.vscode-pylance", // Pylance
+                "charliermarsh.ruff", // Ruff
+                "rangav.vscode-thunder-client", // Thunder Client
+                "ICS.japanese-proofreading", // Japanese Proofreading
+                "ms-azuretools.vscode-docker" // Docker
+            ]
+        }
+    }
+}

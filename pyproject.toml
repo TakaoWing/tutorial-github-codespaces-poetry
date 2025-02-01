@@ -1,0 +1,18 @@
+[project]
+name = "tutorial-github-codespaces-poetry"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Tsubasa Takaoka",email = "tt.wing2838783@gmail.com"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "ruff (>=0.9.4,<0.10.0)",
+    "flask (>=3.1.0,<4.0.0)",
+    "pydantic (>=2.10.6,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
