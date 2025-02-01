@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.11
 
 WORKDIR /workspaces/tutorial-github-codespaces-poetry
 
@@ -6,7 +6,6 @@ WORKDIR /workspaces/tutorial-github-codespaces-poetry
 COPY ./pyproject.toml ./poetry.lock* ./
 RUN pip install poetry \
     && poetry config virtualenvs.create false
-RUN apt-get update && apt-get install -y lsof net-tools
 
 COPY . /workspaces/tutorial-github-codespaces-poetry
 
