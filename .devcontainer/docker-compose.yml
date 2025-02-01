@@ -5,12 +5,6 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
-    volumes:
-      - ../workspaces/tutorial-github-codespaces-poetry:/workspaces/tutorial-github-codespaces-poetry
-
-
-    
-
 
   # cosmosdb:
   #   environment:
