@@ -5,13 +5,18 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
-    networks:
-      default: null
     ports:
       - mode: ingress
         target: 8080
         published: "8080"
         protocol: tcp
+    networks:
+      - default
+
+
+    
+
+
   # cosmosdb:
   #   environment:
   #     AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE: "true"
@@ -41,9 +46,9 @@ services:
   #       source: cosmosdbdata
   #       target: /data
   #       volume: {}
+
 networks:
   default:
+    external: true
     name: devcontainer_default
-volumes:
-  cosmosdbdata:
-    name: devcontainer_cosmosdbdata 
+
