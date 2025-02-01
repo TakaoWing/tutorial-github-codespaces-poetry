@@ -3,7 +3,7 @@ version: '3.8'
 services:
   app:
     build:
-      context: ..
+      context: .
       dockerfile: .devcontainer/Dockerfile
     networks:
       default: null
@@ -12,35 +12,35 @@ services:
         target: 8080
         published: "8080"
         protocol: tcp
-  cosmosdb:
-    environment:
-      AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE: "true"
-      AZURE_COSMOS_EMULATOR_PARTITION_COUNT: "1"
-    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
-    networks:
-      default: null
-    ports:
-      - mode: ingress
-        target: 8081
-        published: "8081"
-        protocol: tcp
-      - mode: ingress
-        target: 10251
-        published: "10251"
-        protocol: tcp
-      - mode: ingress
-        target: 10252
-        published: "10252"
-        protocol: tcp
-      - mode: ingress
-        target: 10253
-        published: "10253"
-        protocol: tcp
-    volumes:
-      - type: volume
-        source: cosmosdbdata
-        target: /data
-        volume: {}
+  # cosmosdb:
+  #   environment:
+  #     AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE: "true"
+  #     AZURE_COSMOS_EMULATOR_PARTITION_COUNT: "1"
+  #   image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+  #   networks:
+  #     default: null
+  #   ports:
+  #     - mode: ingress
+  #       target: 8081
+  #       published: "8081"
+  #       protocol: tcp
+  #     - mode: ingress
+  #       target: 10251
+  #       published: "10251"
+  #       protocol: tcp
+  #     - mode: ingress
+  #       target: 10252
+  #       published: "10252"
+  #       protocol: tcp
+  #     - mode: ingress
+  #       target: 10253
+  #       published: "10253"
+  #       protocol: tcp
+  #   volumes:
+  #     - type: volume
+  #       source: cosmosdbdata
+  #       target: /data
+  #       volume: {}
 networks:
   default:
     name: devcontainer_default
