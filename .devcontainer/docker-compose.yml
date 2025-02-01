@@ -34,7 +34,7 @@ services:
       - '10256:10256'
       - '10350:10350'
     volumes:
-      - ./cosmos-data:/data
+      - ./data/cosmosdb:/data
   azurite:
         container_name: azurite
         image: mcr.microsoft.com/azure-storage/azurite:latest
