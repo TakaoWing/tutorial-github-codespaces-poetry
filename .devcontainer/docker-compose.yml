@@ -6,6 +6,8 @@ services:
     depends_on:
       - cosmosdb
       - azurite
+    networks:
+      - default
   cosmosdb:
     restart: always
     container_name: "azure-cosmosdb-emulator"
@@ -25,6 +27,8 @@ services:
       - '8081:8081'
     volumes:
       - ./data/cosmosdb:/data
+    networks:
+      - default
   azurite:
     container_name: azurite
     image: mcr.microsoft.com/azure-storage/azurite:latest
@@ -32,6 +36,9 @@ services:
       - "10000:10000"
     volumes:
       - ./data/azurite:/data
+    networks:
+      - default
+
 networks:
   default:
     name: devcontainer_default
