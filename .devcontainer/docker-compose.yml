@@ -5,6 +5,7 @@ services:
       dockerfile: .devcontainer/Dockerfile
     depends_on:
       - cosmosdb
+      - azurite
   cosmosdb:
     restart: always
     container_name: "azure-cosmosdb-emulator"
